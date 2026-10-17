@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OM-Share</title>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<header>
+  <h1>OM-Share</h1>
+  <span id="who" class="muted"></span>
+</header>
+
+<main>
+  <section class="card" id="upload">
+    <textarea id="text" placeholder="Markdown 또는 HTML을 붙여넣거나, 파일을 여기로 끌어다 놓으세요" spellcheck="false"></textarea>
+    <div class="row">
+      <button type="button" id="pasteBtn">클립보드 붙여넣기</button>
+      <label class="button" for="file">파일 선택</label>
+      <input type="file" id="file" accept=".md,.markdown,.txt,.html,.htm,text/markdown,text/html,text/plain" hidden>
+      <span id="kind" class="muted"></span>
+    </div>
+    <div class="row">
+      <input type="text" id="title" placeholder="제목 (비워두면 문서에서 자동으로)">
+      <button type="button" id="publishBtn" class="primary">올리기</button>
+    </div>
+    <p id="msg" class="msg" hidden></p>
+  </section>
+
+  <section class="card" id="result" hidden>
+    <a id="link" target="_blank" rel="noopener"></a>
+    <div class="row">
+      <button type="button" id="copyBtn" class="primary">링크 복사</button>
+      <button type="button" id="shareBtn" hidden>공유…</button>
+      <span id="deploy" class="muted"></span>
+    </div>
+  </section>
+
+  <section class="card" id="list">
+    <div class="row">
+      <h2>문서</h2>
+      <input type="search" id="filter" placeholder="검색">
+    </div>
+    <ul id="docs"></ul>
+  </section>
+
+  <details class="card" id="settings">
+    <summary>설정</summary>
+    <label>토큰 <input type="password" id="token" autocomplete="off" placeholder="GitHub Personal Access Token"></label>
+    <label class="check"><input type="checkbox" id="remember" checked> 이 기기에 토큰 기억하기</label>
+    <p class="muted small">
+      토큰은 이 브라우저에만 저장되고 GitHub API 외에는 보내지 않습니다.
+      이 공유 리포 전용으로 새로 만든 토큰을 쓰세요.
+      권한은 공개 리포면 <code>public_repo</code> 하나, 비공개 리포면 <code>repo</code>가 필요합니다.
+      <a id="tokenLink" target="_blank" rel="noopener">토큰 만들기</a>
+    </p>
+    <label>API 주소 <input type="url" id="apiBase" placeholder="https://api.github.com 또는 https://&lt;host&gt;/api/v3"></label>
+    <div class="row">
+      <label>소유자 <input type="text" id="owner"></label>
+      <label>리포 <input type="text" id="repo"></label>
+      <label>브랜치 <input type="text" id="branch" placeholder="기본 브랜치"></label>
+    </div>
+    <div class="row">
+      <button type="button" id="saveBtn" class="primary">저장하고 연결 확인</button>
+      <button type="button" id="resetBtn">자동 감지값으로</button>
+      <span id="conn" class="muted"></span>
+    </div>
+  </details>
+</main>
+
+<script type="module" src="assets/app.js"></script>
+</body>
+</html>
