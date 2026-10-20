@@ -1,0 +1,5 @@
+# delegate 하네스 프로젝트 설정 (ai-remote-control/delegate 참고)
+# test_cmd = ""  # 정적 웹앱(테스트 없음)
+sensitive_paths = [
+  "assets/core.js",
+]
