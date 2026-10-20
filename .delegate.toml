@@ -3,3 +3,9 @@
 sensitive_paths = [
   "assets/core.js",
 ]
+
+[ops]
+# 운영 서버 없음 (근거: ai-remote-control/delegate/docs/ops-survey.md)
+require_human = false
+allowed = []
+checks = []
